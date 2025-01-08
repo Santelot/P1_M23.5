@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P1-M23.5</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6;}
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .header { background-color: #4CAF50; color: white; text-align: center; padding: 10px; }
+        .dropdown { margin-bottom: 20px; }
+        .dropdown select {font-size: 1em; padding: 5px;}
+        .activity { margin-bottom: 20px; }
+         .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .content { display: none; padding: 10px; border: 1px solid #ddd; margin-bottom: 10px; }
+         table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+         span[style*="color: red;"] {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+             const selectedTime = document.getElementById('class-time').value;
+            const activity2 = document.getElementById('activity-2');
+             const activity4 = document.getElementById('activity-4');
+             const pasos6y7act4 = document.querySelectorAll('#activity_4_content tr:nth-child(n+7):nth-child(-n+8)');
+
+
+            if (selectedTime === '45') {
+                activity2.style.display = 'none';
+                  pasos6y7act4.forEach(element => {
+                    element.style.display = 'table-row';
+                });
+                if (activity4) activity4.style.display = 'block';
+
+
+            } else if (selectedTime === '40') {
+                activity2.style.display = 'none';
+                  pasos6y7act4.forEach(element => {
+                    element.style.display = 'none';
+                });
+                if (activity4) activity4.style.display = 'block';
+
+            } else {
+                activity2.style.display = 'block';
+                  pasos6y7act4.forEach(element => {
+                    element.style.display = 'table-row';
+                });
+                if (activity4) activity4.style.display = 'block';
+
+            }
+
+            document.getElementById('selected-time').innerText = `Tiempo efectivo de clase: ${selectedTime} minutos`;
+        }
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook-P1-M23.5</h1>
+    </div>
+    <div class="container">
+        <div class="dropdown">
+            <label for="class-time">Tiempo efectivo de Clase:</label>
+            <select id="class-time" onchange="updateActivities()">
+                <option value="50">50 minutos</option>
+                <option value="45">45 minutos</option>
+                <option value="40">40 minutos</option>
+            </select>
+        </div>
+        <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+        <!-- Actividad 0 -->
+         <div id="activity-0" class="activity" data-time="N/A">
+            <div class="banner" onclick="toggleContent('activity_0_content')">
+                <div class="title">🔍 Actividad 0: Revisión de Misión</div>
+                  <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                   <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                    Verificación inicial del equipo y materiales necesarios para completar la misión.
+                </div>
+            </div>
+            <div id="activity_0_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;">
+                           <strong>Paso 1:</strong> Proyectar la diapositiva 1 "Revisión de Misión". Verificar que:
+                            <ul>
+                                <li>Los dispositivos estén encendidos y tienen acceso a Scratch Jr.</li>
+                                <li>Las Magic Tablets estén disponibles.</li>
+                                <li>El espacio de trabajo esté organizado.</li>
+                            </ul>
+                        </td>
+                        <td style="padding: 10px; vertical-align: top;">N/A</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+                <!-- Actividad 1 -->
+        <div id="activity-1" class="activity" data-time="3">
+            <div class="banner" onclick="toggleContent('activity_1_content')">
+                <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 3 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                    Bienvenida al grupo, poses temáticas, agradecimiento y presentación de los objetivos de la misión mágica.
+                </div>
+            </div>
+            <div id="activity_1_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                         <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                         <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                     </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 2 "¡Bienvenidos al Bosque Encantado!". Saludar a los estudiantes con entusiasmo y energía.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Hola, Genios! ✨ ¡Bienvenidos a un mundo de magia y fantasía! Hoy vamos a crear nuestros propios juegos de preguntas y respuestas, con hadas, duendes y todas las criaturas mágicas que imaginen. ¿Están listos para sumergirse en esta aventura? ¡Prepárense para un viaje encantado!</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (1,5 minutos):</strong> Proyectar la diapositiva 3 "¿Con Cuánta Magia Inician Hoy?". Mostrar opciones visuales de poses temáticas (¡Magia en Acción! y Recargando Magia). Pedir que representen cómo se sienten usando estas poses.</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Exploradores de la magia! 🌟 Muéstrenme cómo se sienten hoy: - Si están llenos de energía y listos para lanzar hechizos, hagan la Pose de ¡Magia en Acción! (levanten los brazos con energía y sonrían como si estuvieran lanzando un hechizo mágico ✨). - Si necesitan un poco más de magia para comenzar la aventura, hagan la Pose de Recargando Magia (pongan las manos en el corazón y cierren los ojos como si estuvieran recargando su energía mágica 💫). ¡Observen a sus compañeros! ¿Quiénes están listos para la magia y quiénes necesitan un poco más de energía?</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (0,5 minutos):</strong> Proyectar la diapositiva 4 "Ritual de Agradecimiento Mágico". Guiar a los estudiantes para realizar el ritual en conjunto.</td>
+                        <td style="padding: 10px; vertical-align: top;">Ahora todos juntos, juntemos nuestras manos y digamos: '¡Gracias por estar aquí, Genios! Hoy vamos a crear juegos mágicos, hacer preguntas encantadas y divertirnos mucho. ¡A explorar la magia juntos!'</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 4 (0,5 minutos):</strong> Proyectar la diapositiva 5 "Objetivos de la Misión Mágica". Enumerar los objetivos de la misión en un formato claro y motivador, incluyendo las etapas de la clase.</td>
+                        <td style="padding: 10px; vertical-align: top;">Hoy tenemos una misión mágica, Genios: <br><br> <strong>1.</strong> Diseñaremos acertijos mágicos: con opciones para princesas y magos. <br><br> <strong>2.</strong> Programaremos concursos: con criaturas mágicas y reacciones especiales. <br><br> <strong>3.</strong> Trabajaremos en equipo: para mejorar nuestros juegos mágicos. ¡Será una aventura de preguntas y respuestas inolvidable!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Actividad 2 -->
+        <div id="activity-2" class="activity" data-time="4">
+             <div class="banner" onclick="toggleContent('activity_2_content')">
+                <div class="title">🧠 Actividad 2: Brain Gym ⏰ Tiempo: 4 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                   Gimnasia mágica con movimientos y visualizaciones para activar la imaginación y prepararse para los retos de los juegos de preguntas.
+                </div>
+            </div>
+            <div id="activity_2_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 6 "¡Gimnasia Mágica!". Explicar brevemente que realizarán movimientos y visualizaciones para activar la imaginación y prepararse para los retos de los juegos de preguntas.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Creadores de Magia! 🌟 Vamos a activar nuestra imaginación con una gimnasia mágica especial, ¡lista para crear los juegos más encantados! Prepárense para conectar sus cuerpos con sus mentes y despertar su magia interior.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (2 minutos):</strong> Guiar a los estudiantes en tres ejercicios: <br><br> <strong>El Hechizo de la Imaginación:</strong> Cerrar los ojos y visualizar un objeto mágico (ej: una varita, una poción, un libro de hechizos) y luego imitar su movimiento con las manos. <br><br>  <strong>La Danza de las Criaturas:</strong> Simular los movimientos de una criatura mágica (ej: el vuelo de un hada, el caminar de un duende, el salto de un unicornio), combinando movimiento con sonidos. <br><br>  <strong>El Puente Mágico:</strong> Imaginar que crean un puente con sus manos mientras inhalan y que lo hacen desaparecer mientras exhalan, repitiendo este movimiento 3 veces.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Ahora, Genios, vamos a movernos como verdaderos magos y magas! ✨ <br><br> - <strong>El Hechizo de la Imaginación:</strong> Cierren sus ojos, visualicen un objeto mágico y luego imiten su movimiento con sus manos. <br><br> - <strong>La Danza de las Criaturas:</strong> Imitemos los movimientos y sonidos de una criatura mágica, dejemos que su imaginación vuele. <br><br> - <strong>El Puente Mágico:</strong> Imaginen que crean un puente con sus manos mientras inhalan y que lo hacen desaparecer mientras exhalan, repitamos este movimiento 3 veces. ¡Sientan cómo su imaginación y su magia se activan con cada ejercicio!</td>
+                    </tr>
+                     <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (1,5 minutos):</strong> Proyectar la diapositiva 8 "¡Listos para la Creación Mágica!". Preguntar a los estudiantes cómo se sienten después de los ejercicios y cómo esta conexión cuerpo-mente los prepara para los desafíos de programación en Scratch Jr.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Excelente trabajo, Creadores de Magia! 🌟 Ahora, cuéntennos, ¿cómo se sienten después de esta gimnasia mágica? ¿Sienten su imaginación más activa y su mente más conectada con su cuerpo? Recuerden, esta magia nos ayudará a crear juegos de preguntas y respuestas increíbles en Scratch Jr. ¡Prepárense para hacer magia en la pantalla!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+               <!-- Actividad 3 -->
+        <div id="activity-3" class="activity" data-time="24.5">
+            <div class="banner" onclick="toggleContent('activity_3_content')">
+                <div class="title">🚀 Actividad 3: Challenge ⏰ Tiempo: 24.5 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                   Desafío para crear juegos de preguntas y respuestas en un mundo de fantasía, con diferentes enfoques de interacción.
+                </div>
+            </div>
+            <div id="activity_3_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 9 "¡El Desafío Mágico!". Explicar a los estudiantes que trabajarán en tres niveles de dificultad para crear sus propios juegos de preguntas y respuestas, en un mundo de fantasía.</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Creadores de Magia, llegó el momento de poner a prueba sus habilidades en Scratch Jr.! 🌟 Hoy vamos a crear juegos increíbles con hadas, duendes, magos y princesas. Tenemos tres desafíos emocionantes: 'El Saludo Mágico', 'El Acertijo del Mago' y 'El Concurso de las Criaturas Mágicas'. ¡Elijan su nivel y prepárense para la magia!</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (2 minutos):</strong> Proyectar la diapositiva 10 "Niveles del Desafío Mágico". Explicar claramente los objetivos, instrucciones, <span style="color: red; font-weight: bold;">condiciones</span> y un <span style="color: red; font-weight: bold;">consejo</span> útil para cada nivel, incluyendo el texto completo de los challenges.</td>
+                        <td style="padding: 10px; vertical-align: top;">"¡Atención, Genios! Aquí están los desafíos que les esperan en este mundo mágico: <br><br> <strong>Nivel Rookie (Básico): 'El Saludo Mágico'</strong> <br><br> Nombre del Reto: 'El Saludo de la Hada' <br><br>  <span style="color: red; font-weight: bold;">Objetivo:</span> Programar un hada para que haga una pregunta mágica sencilla a un duende, y que el duende dé una respuesta mágica. <br><br> <span style="color: red; font-weight: bold;">Instrucciones:</span> Abre un nuevo proyecto en Scratch Jr. Elige dos personajes: un hada y un duende. Programa al hada para que haga una pregunta mágica sencilla (ej: "¿Cuál es tu hechizo favorito?" o "¿Cómo estás hoy, pequeño duende?"). Programa al duende para que responda con una respuesta mágica (ej: "Mi hechizo favorito es volar" o "¡Estoy lleno de magia!"). <br><br> <span style="color: red; font-weight: bold;">Condiciones:</span> El hada debe hacer una pregunta mágica. El duende debe dar una respuesta relacionada con la magia o la fantasía. <br><br> <span style="color: red; font-weight: bold;">Consejo:</span> ¡Piensa en preguntas y respuestas que tengan un toque de magia! <br><br> <strong>Nivel Master (Intermedio): 'El Acertijo del Mago'</strong> <br><br> Nombre del Reto: 'El Acertijo del Mago y la Princesa' <br><br>  <span style="color: red; font-weight: bold;">Objetivo:</span> Programar a un mago para que haga un acertijo con dos opciones de respuesta a una princesa, y que la princesa responda correctamente. <br><br>  <span style="color: red; font-weight: bold;">Instrucciones:</span> Abre un nuevo proyecto en Scratch Jr. Elige dos personajes: un mago y una princesa. Programa al mago para que haga un acertijo mágico con dos opciones de respuesta (ej: "Soy blanco y frío, ¿qué soy?: a) Un sol, b) La nieve" o "¿Soy un animal que vuela y es de noche: a) Un búho, b) Una mariposa?"). Programa a la princesa para que tenga dos respuestas: Una respuesta correcta si el usuario elige la opción correcta. Una respuesta incorrecta si el usuario elige la otra opción. <br><br>  <span style="color: red; font-weight: bold;">Condiciones:</span> El mago debe hacer un acertijo con dos opciones. La princesa debe reaccionar de manera correcta según la opción elegida. <br><br> <span style="color: red; font-weight: bold;">Consejo:</span> Usa acertijos que sean divertidos y usa bloques de "condición" para las respuestas de la princesa. <br><br> <strong>Nivel Hacker (Avanzado): 'El Concurso de las Criaturas Mágicas'</strong> <br><br> Nombre del Reto: 'El Gran Concurso de Criaturas Mágicas'  <br><br> <span style="color: red; font-weight: bold;">Objetivo:</span> Programar un concurso donde un narrador hace preguntas sobre criaturas mágicas a un aprendiz de mago, y que el aprendiz reaccione de manera diferente según su respuesta.  <br><br>  <span style="color: red; font-weight: bold;">Instrucciones:</span> Abre un nuevo proyecto en Scratch Jr. Elige dos personajes: un narrador (que puede ser un personaje neutro o un objeto) y un aprendiz de mago. Programa al narrador para que haga preguntas de opción múltiple sobre criaturas mágicas (ej: "¿Qué animal escupe fuego? a) Un dragón, b) Un unicornio, c) Una sirena"). Programa al aprendiz de mago para que tenga una reacción diferente dependiendo de la opción que el usuario elija: Reacción correcta: Si la respuesta es correcta, el aprendiz hace un movimiento de alegría, lanza un hechizo de luz o cambia de disfraz a un aprendiz feliz. Reacción incorrecta: Si la respuesta es incorrecta, el aprendiz se pone triste, lanza un hechizo que lo debilita o cambia de disfraz a un aprendiz confundido. Crea al menos 3 preguntas diferentes. <br><br>  <span style="color: red; font-weight: bold;">Condiciones:</span> El juego debe tener al menos 3 preguntas diferentes sobre criaturas mágicas. El aprendiz de mago debe reaccionar de manera diferente si la respuesta es correcta o incorrecta. <br><br> <span style="color: red; font-weight: bold;">Consejo:</span> Utiliza toda tu creatividad, puedes agregar efectos de sonido y hacer los disfraces más mágicos."</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                       <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (20 minutos):</strong> Proyectar la diapositiva 11 "¡A Crear la Magia!". Supervisar a los estudiantes mientras trabajan, ayudándolos a cumplir las condiciones y resolver dudas.</td>
+                        <td style="padding: 10px; vertical-align: top;">"¡Es hora de crear, Genios de la Magia! 🌟 Elijan su desafío: - Rookie: ¡Creen el saludo mágico! - Master: ¡Diseñen el acertijo del mago! - Hacker: ¡Preparen el concurso de criaturas mágicas! ¡Muestren su poder y habilidades en este mundo encantado!"</td>
+                    </tr>
+                     <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 4 (2 minutos):</strong> Proyectar la diapositiva 12 "¡Compartiendo la Magia!". Facilitar que los estudiantes muestren sus proyectos y expliquen cómo lograron cumplir con las condiciones de cada nivel.</td>
+                         <td style="padding: 10px; vertical-align: top;">"¡Increíbles creaciones, Genios! 🌟 Ahora, compartan su magia: - Rookie: ¿Qué saludo mágico crearon y cómo lo programaron? - Master: ¿Cómo diseñaron el acertijo del mago y cómo funciona? - Hacker: ¿Cómo crearon ese concurso con criaturas mágicas tan genial? ¡Inspírense unos a otros con sus increíbles aventuras mágicas!"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Actividad 4 -->
+        <div id="activity-4" class="activity" data-time="10">
+            <div class="banner" onclick="toggleContent('activity_4_content')">
+                <div class="title">🤝 Actividad 4: Team Gnius ⏰ Tiempo: 10 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                   Colaboración en equipos para revisar y mejorar los juegos mágicos.
+                </div>
+            </div>
+            <div id="activity_4_content" class="content">
+                 <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 13 "¡Equipos de Magia!". Pedir a los estudiantes que formen equipos con compañeros cercanos para realizar la actividad de colaboración.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Creadores de Magia, es hora de unir sus poderes en el bosque encantado! 🌿 Júntense con dos o tres compañeros cercanos para formar sus equipos mágicos. Juntos compartirán ideas, mejorarán sus juegos y harán que sus aventuras sean aún más encantadoras.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (1 minuto):</strong> Proyectar la diapositiva 14 "Roles Mágicos". Pedir a los equipos que distribuyan roles: - Hechicero de Preguntas. - Maestro de Hechizos. - Guardián de la Fantasía.</td>
+                       <td style="padding: 10px; vertical-align: top;">¡Cada equipo necesita un plan mágico! 🌟 Decidan juntos quién será: - Hechicero de Preguntas: Se encarga de las preguntas y acertijos. - Maestro de Hechizos: Se enfoca en programar las reacciones mágicas. - Guardián de la Fantasía: Revisa los detalles y la magia del juego. ¡Organícense en un minuto, Genios!</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                         <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (1 minuto):</strong> Proyectar la diapositiva 15 "Herramientas Mágicas". Pedir a los estudiantes que recojan Magic Tablets u otros materiales necesarios para trabajar.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Es hora de recoger las herramientas mágicas! 🌟 Cada equipo necesitará sus Magic Tablets u otros materiales para registrar sus ideas y trabajar juntos. ¡Tienen 30 segundos para prepararse, hechiceros, maestros y guardianes de la fantasía!</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 4 (2 minutos):</strong> Proyectar la diapositiva 16 "¡Revisión de Hechizos!". Pedir a los estudiantes que observen los proyectos de sus compañeros y respondan a preguntas clave para proporcionar retroalimentación.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Hechiceros, maestros y guardianes, a observar con atención! 🔎 Revisen los juegos mágicos de sus compañeros y respondan estas preguntas: - ¿Qué les pareció la magia de las preguntas y respuestas? - ¿Cómo podrían mejorar los hechizos y reacciones de los personajes? - ¿Qué detalles les inspiraron y podrían usar en sus propias aventuras mágicas? ¡Sean curiosos y constructivos en sus comentarios!</td>
+                    </tr>
+                     <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 5 (3 minutos):</strong> Proyectar la diapositiva 17 "¡Turno de la Magia!". Pedir a los estudiantes que se turnen para explicar sus proyectos y recibir preguntas del equipo.</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Es su turno de brillar como creadores de magia! 🌟 Por turnos, expliquen cómo diseñaron sus juegos: - ¿Qué preguntas y respuestas crearon y qué los hace especiales? - ¿Qué reacciones y hechizos programaron y cómo funcionan? - ¿Qué hace que su juego mágico sea único? El resto del equipo hará preguntas para aprender más. ¡Luego cambien de rol y muestren su magia!</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 6 (3 minutos):</strong> Proyectar la diapositiva 18 "¡Ajustes en Equipo!". Dar tiempo a los equipos para trabajar juntos en los ajustes sugeridos durante la revisión.</td>
+                        <td style="padding: 10px; vertical-align: top;">¡Es tiempo de perfeccionar su magia, Genios! 🚀 Tomen las ideas que compartieron y ajusten sus juegos. Recuerden, la creatividad y la lógica son clave para un juego mágico. ¡Trabajen juntos para que sus creaciones sean aún mejores y más encantadoras!</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 7 (2 minutos):</strong> Proyectar la diapositiva 19 "¡Reflexión en Equipo Mágico!". Facilitar preguntas como: - ¿Qué aprendieron de trabajar juntos? - ¿Cómo mejoraron sus proyectos gracias a las ideas de sus compañeros? - ¿Qué fue lo más divertido de crear magia en equipo?</td>
+                         <td style="padding: 10px; vertical-align: top;">¡Hechiceros, maestros y guardianes, reflexionemos sobre esta aventura mágica! 🌿 - ¿Qué aprendieron trabajando juntos en equipo? - ¿Cómo mejoraron sus juegos gracias a las ideas de sus compañeros? - ¿Qué fue lo más divertido de crear juegos mágicos juntos? ¡El trabajo en equipo siempre nos lleva a lo más alto en la magia!</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+                <!-- Actividad 5 -->
+        <div id="activity-5" class="activity" data-time="2.5">
+            <div class="banner" onclick="toggleContent('activity_5_content')">
+                <div class="title">🏅 Actividad 5: Honor the Lab ⏰ Tiempo: 2.5 minutos</div>
+                 <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 5px 0;">
+                <div class="subtitle" style="margin-top: 5px; font-size: 0.9em; color: #e0e0e0;">
+                    Reflexión sobre los logros de la misión mágica, reconocimiento del esfuerzo y organización del espacio de trabajo.
+                </div>
+            </div>
+             <div id="activity_5_content" class="content">
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+                    <tr style="border-bottom: 1px solid #ddd; background-color: #f9f9f9;">
+                        <th style="width: 50%; padding: 10px; text-align: left; border-right: 1px solid #ddd;">Acción</th>
+                        <th style="width: 50%; padding: 10px; text-align: left;">Diálogo Maestro</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 1 (0,5 minutos):</strong> Proyectar la diapositiva 20 "¡Revisión de Objetivos Mágicos!". Guiar a los estudiantes en una breve reflexión grupal sobre lo aprendido y logrado durante la clase.</td>
+                        <td style="padding: 10px; vertical-align: top;">"¡Creadores de Magia, qué aventura tan encantadora hemos completado hoy! 🌟 Reflexionemos juntos: - ¿Cumplimos nuestra misión? ¡Sí! Diseñamos acertijos mágicos, programamos concursos con criaturas mágicas y trabajamos en equipo para mejorar nuestros juegos. ¡Todo gracias a su creatividad y poder mágico! ✨"</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 2 (1 minuto):</strong> Realizar el reconocimiento de logros mediante un mensaje verbal motivador.</td>
+                        <td style="padding: 10px; vertical-align: top;">"¡Felicidades, Genios de la Magia! 🌟 Hoy se convirtieron en verdaderos hechiceros y magas y crearon juegos de preguntas y respuestas fascinantes. Cada acertijo resuelto, cada hechizo lanzado y cada criatura mágica que mostraron es una prueba de su poder. Recuerden siempre: ¡ustedes tienen el poder de transformar la realidad con su imaginación! ¡Nos vemos en nuestra próxima aventura mágica!"</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-right: 1px solid #ddd; vertical-align: top;"><strong>Paso 3 (1 minuto):</strong> Proyectar la diapositiva 21 "Organización del Laboratorio Mágico". Pedir a los estudiantes que devuelvan los materiales (Magic Tablets, etc.) a su lugar correspondiente y que organicen el espacio de trabajo.</td>
+                         <td style="padding: 10px; vertical-align: top;">"¡Antes de salir del bosque encantado, debemos dejar nuestro laboratorio mágico listo para la próxima aventura! 🌿 Por favor, devuelvan las Magic Tablets y todos los materiales a su lugar. Recuerden que un espacio limpio nos inspira para seguir creando y aprendiendo. ¡Gracias por su colaboración mágica!"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+   </div>
+        <!-- Scripts adicionales -->
+    <script>
+        // Aquí puedes agregar más scripts si es necesario
+    </script>
+</body>
+</html>
